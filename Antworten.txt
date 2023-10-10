@@ -1,0 +1,7 @@
+A1: 
+    a) Wofuer werden .h Dateien und .c Dateien verwendet?
+
+    .h Dateien sind Header files, welche genutzt werden um die eigentlichen Quellcode dateien (die .c dateien) leserlicher zu machen.
+    Besoders werden dabei Codefraqmente ausgelagert, welche bei mehreren Dateien gebraucht werden. Dadurch wird die Dopplung von Code vermieden. 
+
+    
