@@ -1,0 +1,2 @@
+einmaleins:
+    gcc -o $@

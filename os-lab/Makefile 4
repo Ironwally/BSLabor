@@ -1,0 +1,28 @@
+#Macros function kind of like a Variable that stores commands-parts. It can be used to simplefy bigger commands and reduce repetiveness.
+#They can be appended via $(nameOfMacro)
+
+IDIR=../include
+ODIR=obj
+LDIR=../lib
+LIBS=none										#Macro for any additional libraries that you might want to include
+
+# Yes, Macros can be used inside other Macros
+CC=gcc											#Macro for Compiler Version used
+CFLAGS=-I -g$(IDIR)								#Macro for additional flags for the compiler.
+
+_DEPS=hellomake.h								#Macro for Dependencies of .o files (Files important for compilation of the corresponding .c files)
+DEPS=$(patsubst %,$(IDIR)/%,$(_DEPS))			#Create path for dependencies
+
+_OBJ=hellomake.o hellofunc.o					#Macro for Dependencies of the compilation of the .c file to be executed and compiled
+OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))				#Create path for dependencies
+
+%.o:	%.c $(DEPS)
+		$(CC) -o -c $@ $< $(CFLAGS)
+
+hellomake:	$(OBJ)
+		$(CC) -o $@ $^ $(CFLAGS)
+
+.PHONY:	clean									#Protect files named clean from beeing cleaned by clean command (a lotta "clean" words in there, aye?)
+
+clean:											#Cleans your shit-ass fuc***..., I smeant: Cleans your source and object directories with command: make clean
+		rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 

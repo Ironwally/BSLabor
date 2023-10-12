@@ -1,7 +1,34 @@
 A1: 
-    a) Wofuer werden .h Dateien und .c Dateien verwendet?
+    b) Wofuer werden .h Dateien und .c Dateien verwendet?
 
     .h Dateien sind Header files, welche genutzt werden um die eigentlichen Quellcode dateien (die .c dateien) leserlicher zu machen.
     Besoders werden dabei Codefraqmente ausgelagert, welche bei mehreren Dateien gebraucht werden. Dadurch wird die Dopplung von Code vermieden. 
 
+    d) Wo Tabs?
+    Makefiles brauchen ein Tab zwischen "target:" und den prerequesits
+    und fuer jeden command innerhalb einer Regel
+
+    e) Was diese Zeile? "%.o: %.c $(DEPS)" und was diese Zeichen?
     
+    % jegliche Zeichenkette
+    $() Macro Inhalt als Macro interpretieren
+
+    Zeile definiert eine Regel fuer alle Dateien die auf .o enden und benoetigt als prerequesits/dependencies alle dateien die auf .c enden und 
+    zusaetzlich alle in den Macro DEPS enthaltenen dependencies. 
+
+    $@ referenziert das target einer Regel
+    $^ referenziert alle prerequesits/dependencies einer Regel
+    $< referenziert nur die erste dependency einer Regel
+
+A2:
+    a) Wo SystemCall in man pages? Wo C Standard-Bibliothek in man pages?
+
+        man (die bestimmte passende nummer) systemCall
+        man (die bestimmte passende nummer) stdlib
+    
+    b) 
+        man 2 open
+        man 3 printf
+
+A3:
+    a) C programm das tabelle mit einsxeins erstellt
