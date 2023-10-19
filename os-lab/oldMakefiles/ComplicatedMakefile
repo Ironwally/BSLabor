@@ -11,13 +11,13 @@ CC=gcc											#Macro for Compiler Version used
 CFLAGS=-I -g$(IDIR)								#Macro for additional flags for the compiler.
 
 _DEPS=hellomake.h								#Macro for Dependencies of .o files (Files important for compilation of the corresponding .c files)
-DEPS=$(patsubst %,$(IDIR)/%,$(_DEPS))			#Create path for dependencies
+DEPS=$(patsubst %,$(IDIR)/%,$(_DEPS))			#Create path for dependencies, #function patsubst in form: (patsubst PATTERN, REPLACEMENT, TEXT)
 
 _OBJ=hellomake.o hellofunc.o					#Macro for Dependencies of the compilation of the .c file to be executed and compiled
-OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))				#Create path for dependencies
+OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))				#function patsubst in form: (patsubst PATTERN, REPLACEMENT, TEXT)
 
 %.o:	%.c $(DEPS)
-		$(CC) -o -c $@ $< $(CFLAGS)
+		$(CC) -c -o $@ $< $(CFLAGS)
 
 hellomake:	$(OBJ)
 		$(CC) -o $@ $^ $(CFLAGS)
